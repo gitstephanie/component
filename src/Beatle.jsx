@@ -1,27 +1,32 @@
-import React, {Component} from 'react';
-import App from './App';
+import React, { PureComponent } from 'react';
 
-class Beatle extends Component {
+const lastNames = {
+    "Paul": "McCartney", 
+    "John": "Lennon", 
+    "George": "Harrison",
+    "Ringo": "Starr"
+}
+
+export class Beatle extends PureComponent {
     state = {
-      lastNames: []
+      lastName: ""
     }
 
     componentDidMount(){
         setTimeout(() => {
-            this.setState({lastNames: {
-                "Paul" : "McCartney", 
-                "John": "Lennon", 
-                "George": "Harrison", 
-                "Ringo": "Starr"
-            }
+            this.setState({lastName: lastNames[this.props.name]
         })
         }, 1000)
     }
 
     render (){
-      return this.props.lastNames;
+      return (
+        <div>
+            <p>{this.props.name}: {this.state.lastName}</p>
+        </div>
+      );
     }
 
 }
 
-export default Beatle
+

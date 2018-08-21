@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Beatle } from './Beatle'
+import { Beatle } from './Beatle';
 import './App.css';
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="App" style={{color: 'red'}}>
-        {this.state.names.map(name => <Beatle name={name} />)}
+        {this.state.names.map((name, index) => <Beatle name={name} key={index} />)}
       </div>
     );
   }
